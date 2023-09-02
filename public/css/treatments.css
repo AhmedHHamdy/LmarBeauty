@@ -1,0 +1,2389 @@
+/* Box Model Hack */
+* {
+    box-sizing: border-box;
+}
+  
+/* Clear fix hack */
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+  
+.clear {
+    clear: both;
+}
+  
+/******************************************
+/* BASE STYLES
+/*******************************************/
+  
+html{
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+  
+  
+body {
+  font-family: 'Muli', 'Montserrat', serif;
+  background: #17202b;
+}
+
+/******************************************
+/* Navigation
+/*******************************************/
+.header-nav {
+  display: flex;
+  height: 10vh;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  top: 0;
+  background: #17202b;
+  text-align: center;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.header-nav-list {
+    width: 100vh;
+    height: 5vh;
+    margin: 0 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+ul {
+    width: 80%;
+}
+
+.header-nav-list ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+.header-nav-list ul li {
+    font-size: 1.3rem;
+}
+
+.header-nav-list ul li a {
+    text-transform: uppercase;
+    color: #d3a058;
+    letter-spacing: 0.2rem;
+    font-weight: 600;
+    position: relative;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 5%;
+}
+
+.header-nav-list ul li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #d3a058;
+    transition: width 0.3s ease-in-out;
+}
+
+.header-nav-list ul li a:hover::after {
+    color: rgba(42, 63, 82, 1);
+    width: 100%;
+}
+
+.header-nav-list i {
+    width: 5%;
+    margin-top: 1%;
+    font-size: 1rem;
+    color: #d3a058;
+}
+
+
+.header-nav div {
+  width: 15%;
+}
+
+.header-nav div .logo {
+  max-width: 100%;
+  width: 100%;
+}
+
+.booking {
+  width: 15%;
+  display: flex;
+  justify-content: center;
+}
+
+.booking .shop {
+  font-size: 1.8rem;
+  color: #d3a058;
+  font-weight: 500;
+}
+
+
+.booking a.book-now-button {
+  font-size: 1.5rem;
+  color: #d3a058;
+  font-weight: 500;
+  padding: 7% 22%;
+  border: 1px solid #d3a058;
+  border-radius: 0.1rem;
+  background-color: transparent; /* Set initial background color to transparent */
+  transition: background-color 0.3s; /* Add transition effect for smooth animation */
+  position: relative; /* Create a relative po*/
+
+}
+
+
+.booking a.book-now-button::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+height: 100%;
+width: 0;
+background-color: #d3a058; /* Set the color for the filling */
+transition: width 0.3s; /* Add transition effect for the filling animation */
+z-index: -1; /* Position the pseudo-element below the button text */
+}
+
+/* Style changes on hover */
+.booking a.book-now-button:hover {
+background-color: #d3a058; /* Change the background color on hover */
+color: #17202b;
+}
+
+.booking a.book-now-button:hover::before {
+width: 100%; /* Increase the width to 100% on hover */
+}
+
+
+
+/* animated Section */
+.animated-section {
+  opacity: 0; /* Start with the section hidden */
+  transition: opacity 0.1s ease-in-out; /* Apply a smooth transition */
+}
+
+.animated-section.animate {
+  opacity: 1; /* Make the section visible */
+}
+
+
+/* Define the animation keyframes */
+@keyframes shining {
+0% {
+  background-color: #17202b; /* Set your desired background color */
+}
+50% {
+  background-color: #d3a058; /* Set your desired shining color */
+}
+100% {
+  background-color: #d3a058; /* Set your desired background color */
+}
+}
+
+
+.fade-in {
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+}
+
+.fade-in.show {
+    opacity: 1;
+}
+
+
+
+/* Treatments Nav Menu */
+.services {
+  position: absolute;
+  top: 79px;
+  display: flex;
+  z-index: 1;
+  background: #17202b;
+  padding: 1%;
+  width: 100%;
+  height: 60vh;
+  border-top: 2px solid rgba(246, 196, 125, 0.2);
+}
+
+.services section {
+  width: 10%;
+  margin: 2% 2% 1% 3.2%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.services section h4 {
+  margin-bottom: 16%;
+  font-size: 1.5rem;
+  color: rgba(246, 196, 125, 0.8);
+  width: 16vh;
+}
+
+.services li:first-child {
+  margin-top: 1%;
+}
+
+.services li {
+  margin-top: 20%;
+  width: 30vh;
+}
+
+.services > section a {
+  font-size: 1.5rem;
+  color: #d3a058;
+  font-weight: 500;
+  padding-bottom: 2%;
+  position: relative;
+  border-bottom: 2px solid transparent;
+}
+
+.services > section li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+
+  background: #d3a058;
+  transition: width 0.3s ease-in-out;
+}
+
+.services > section li a:hover::after {
+  width: 100%;
+}
+
+.services .imgOneContainer {
+  text-align: center;
+  width: 100vh;
+  margin: 0;
+  margin: 2% 5% 0 10%;
+  display: flex;
+  flex-direction: row;
+  border-left: 2px solid rgba(246, 196, 125, 0.3);
+  padding-left: 5%;
+}
+
+.services .imgOneContainer h3 {
+  margin-top: 5%;
+}
+
+.services .imgOneContainer a {
+  padding: 0;
+  border: 0;
+}
+
+section .imgOne {
+  height: 30vh; /* Increase the height to make the image larger */
+  width: 50vh; /* Increase the width to make the image larger */
+  background: url('../assets/skin-1.jpg') center no-repeat;
+  background-size: cover;
+  text-decoration: none;
+  margin: 0;
+  margin-right: 2%;
+}
+
+section .imgOne:hover {
+  transform: scale(1.1);
+}
+
+
+.hidden {
+  display: none;
+}  
+
+
+/******************************************
+/* Main Section
+/*******************************************/
+/* .main-section {
+    margin-top: 5%;
+    height: 60vh;
+    background: url('../assets/skintightbanner2.png') center no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+} */
+
+.main-section-container {
+    margin-left: 4.3%;
+}
+
+.main-section-container h1{
+    font-weight: 500;
+    color: #17202b;
+    /* width: 100%; */
+    font-size: 6rem;
+    font-family: 'Playfair Display', serif;
+    line-height: 1.2;
+    margin-bottom: 1%;
+}
+
+
+.main-section-container p{
+    font-weight: 500;
+    color: #17202b;
+    width: 60%;
+    font-size: 2rem;
+    font-family: 'Montserrat', serif;
+    line-height: 1.5;
+}
+
+.main-section-container a{
+    font-size: 1.8rem;
+    padding: 1% 3% 1% 3%;
+    color: #17202b;
+    font-weight: 500;
+    border: 2px solid #17202b;
+    font-family: 'Montserrat', serif;
+    text-align: center;
+    background-color: transparent; /* Set initial background color to transparent */
+    transition: background-color 0.3s; /* Add transition effect for smooth animation */
+    position: relative; /* Create a relative po*/
+}
+
+
+.main-section-container a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+
+  width: 0;
+  background-color: #17202b; /* Set the color for the filling */
+  transition: width 0.3s; /* Add transition effect for the filling animation */
+  z-index: -1; /* Position the pseudo-element below the button text */
+}
+
+/* Style changes on hover */
+.main-section-container a:hover {
+  background-color: #17202b; /* Change the background color on hover */
+  color: #d3a058;
+}
+
+.main-section-container a:hover::before {
+  width: 100%; /* Increase the width to 100% on hover */
+}
+
+ /******************************************
+/* Main Content Nav
+/*******************************************/
+
+.main-content-nav {
+    background: #d3a058;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    padding: 2% 0;
+}
+
+.main-content-nav ul {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-content-nav ul li {
+    margin-right: 2%;
+}
+
+.main-content-nav ul li a {
+    font-size: 2rem;
+    color: #17202b;
+    font-weight: 500;
+}
+
+.main-content-nav ul li a:hover {
+    text-decoration: underline;
+}
+
+
+
+ /******************************************
+/* Main Content Info
+/*******************************************/
+
+.main-content-info {
+    height: 70vh;
+    background: #17202b;
+}
+
+.main-content-info-container {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 5%;
+}
+
+.main-content-info h3 {
+    font-weight: 500;
+    color: #d3a058;
+    /* width: 100%; */
+    font-size: 4rem;
+    font-family: 'Playfair Display', serif;
+    line-height: 1.2;
+    margin: 4% 0 1% 5%;
+}
+
+
+.how-it-works-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 45%;
+}
+
+.how-it-works-section p {
+    font-weight: 400;
+    color: #d3a058;
+    width: 100%;
+    font-size: 1.8rem;
+    /* font-family: 'Montserrat', serif; */
+    line-height: 1.5;
+    margin-bottom: 5%;
+}
+
+.how-it-works-img {
+  margin: 0 3% 0 0 ;
+}
+
+
+.how-it-works-img img{
+    /* background: url('../assets/tightening--530x4202.webp') center no-repeat; */
+    max-width: 100%; /* Increase the width to make the image larger */
+    /* background-size: cover;
+    
+    text-decoration: none; */
+    height: 53vh; 
+    margin: 0;
+}
+
+
+ /******************************************
+/* Preparation And Aftercare Section
+/*******************************************/
+.preparation-and-aftercare-section {
+    margin: 0% 0 8% 0;
+
+}
+
+
+.preparation-and-aftercare-section h3 {
+    font-weight: 500;
+    color: #d3a058;
+    font-size: 4rem;
+    font-family: 'Playfair Display', serif;
+    line-height: 1.2;
+    margin: 4% 0 2% 5%;
+}
+
+
+.preparation-and-aftercare-section-container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+
+.preparation-and-aftercare-section-container .preparation-list-info {
+    height: 15vh;
+    width: 100%;
+    background: #17202b;
+    margin-right: 5%;
+}
+
+
+
+.preparation-list-info ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+.preparation-list-info ul li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2%;
+    margin-right: 2%;
+    text-align: center;
+    font-size: 2rem;
+    color: #17202b;
+    background-color: #d3a058;
+    cursor: pointer;
+    width: 100%;
+    font-weight: 500;
+}
+
+.preparation-list-info ul li:last-child {
+  margin-right: 0%;
+}
+
+.preparation-list-info ul li:last-child {
+    border-bottom: 2px solid #d3a058;
+}
+
+
+
+.preparation-info-prep {
+    height: 33vh;
+    width: 100%;
+    background: #17202b;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.preparation-info-prep section {
+  height: 9vh;
+  margin-bottom: 3%;
+  width: 31.8%;
+  text-align: left;
+}
+
+
+.preparation-info-prep h3 {
+    font-weight: 500;
+    color: #d3a058;
+    width: 100%;
+    font-size: 2rem;
+    font-family: 'Montserrat', serif;
+    line-height: 1.5;
+    margin: 0;
+    margin-bottom: 2%;
+}
+
+.preparation-info-prep p {
+    font-weight: 400;
+    color: #d3a058;
+    width: 100%;
+    font-size: 1.5rem;
+    line-height: 1.8;
+    margin-bottom: 5%;
+}
+
+
+
+.horizontal-space {
+  display: none;
+}
+
+
+/******************************************
+/* fourth section
+/*******************************************/
+
+.fourth-section {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 5% 0 5% 0%;
+    background-color: #17202b;;
+}
+
+.fourth-section .fourth-section-title {
+    font-weight: 400;
+    color: #d3a058;
+    font-size: 5rem;
+    font-family: 'Playfair Display', serif;
+    padding-left: 5%;
+    margin-bottom: 2%;
+}
+
+.fourth-section > section {
+    display: flex;
+    margin-top: 3%;
+    width: 95%;
+    margin: 0 auto;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.fourth-section  section {
+    flex-basis: 28%;
+    text-align: left;    
+}
+
+
+.fourth-section h3 {
+    font-size: 2.1rem;
+    margin: 0 auto;
+    color: #d3a058;
+    font-weight: 500;
+}
+
+.fourth-section p {
+    padding-top: 2%;
+    font-size: 1.5rem;
+    width: 100%;
+    color: #d3a058;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+
+.fourth-section i {
+    font-size: 5rem;
+    color: #d3a058;
+    padding-bottom: 6%;
+}
+
+/******************************************
+/* Photo Gallery
+/*******************************************/
+.photo-gallery {
+  background: #d3a058;
+  height: 60vh;
+  text-align: center;
+  padding: 2.2% 0;
+}
+
+.photo-gallery h3 {
+  font-size: 4rem;
+  width: 100%;
+  font-weight: 500;
+  color: #17202b;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 2%;
+  line-height: 1.5;
+}
+
+.photo-gallery-img-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.photo-gallery-img-container img {
+  width: 30%;
+  border: 2px solid rgba(21, 18, 24, 0.6);
+}
+
+
+
+
+/******************************************
+/* Booking Section
+/*******************************************/
+.booking-section {
+    display: flex;
+    background-color: #17202b;;
+    justify-content: space-evenly;
+    height: 70vh;
+    align-items: center;
+    padding: 3% 0;
+}
+
+
+.booking-section-img {
+    background: url("../assets/therapistimagedebfb0.png") center no-repeat;
+    width: 70vh;
+    height: 60vh;
+}
+
+.booking-section-info {
+    width: 53%;
+}
+
+.booking-section-info h2 {
+    font-size: 4rem;
+    width: 80%;
+    font-weight: 500;
+    color: #d3a058;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 1%;
+    line-height: 1.5;
+}
+
+.booking-section-info P {
+    font-size: 2rem;
+    width: 65%;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 5%;
+    color: #d3a058;
+}
+
+.booking-section-info a {
+    font-size: 2rem;
+    padding: 1.5% 5% 1.5% 5%;
+    color: #d3a058;
+    font-weight: 500;
+    text-align: center;
+    border: 2px solid #d3a058;
+    background-color: transparent; /* Set initial background color to transparent */
+    transition: background-color 0.3s; /* Add transition effect for smooth animation */
+    position: relative; /* Create a relative po*/
+}
+
+
+.booking-section-info a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  background-color: #d3a058; /* Set the color for the filling */
+  transition: width 0.3s; /* Add transition effect for the filling animation */
+  z-index: -1; /* Position the pseudo-element below the button text */
+}
+
+/* Style changes on hover */
+.booking-section-info a:hover {
+  background-color: #d3a058; /* Change the background color on hover */
+  color: #17202b;
+}
+
+.booking-section-info a:hover::before {
+  width: 100%; /* Increase the width to 100% on hover */
+}
+
+
+
+/******************************************
+/* Customer Reviews Section
+/*******************************************/
+
+.customer-review-section {
+  background: #d3a058;
+  text-align: center;
+  padding: 5% 0;
+}
+
+
+ .customer-review-section .reviews-container {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.customer-review-section .reviews-container section{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background: #17202b;
+  width: 31.333%;
+  margin: 2% 3% 0 0;
+  padding: 3%;
+  margin: 0 auto;
+}
+ 
+.customer-review-section h2 {
+  font-size: 5rem;
+  color: #17202b;
+  padding-bottom: 4%;
+  font-weight: 500;
+  font-family: 'Playfair Display', serif;
+}
+
+.customer-review-section p {
+  font-size: 1.6rem;
+  width: 100%;
+  line-height: 1.5;
+  color: #d3a058;
+  padding-bottom: 2%;
+  text-align: left;
+  font-style: italic;
+}
+
+.customer-review-section h4 {
+  font-size: 1.5rem;
+  width: 30%;
+  margin: 6% 0 0 ;
+  color: #d3a058;
+  text-align: left;
+  align-self: flex-start;
+  border-radius: 1rem;
+} 
+
+
+/******************************************
+/* Map - Center - Info
+/*******************************************/
+.map-container {
+  height: 65vh;
+}
+
+.center-info {
+  text-align: left;
+  background-color: #d3a058;
+  position: relative;
+  bottom: 465px;
+  width: 20%;
+  height: 46vh;
+  margin-left: 4.4%;
+  padding: 2% 0% 5% 2%;
+}
+
+.center-info h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #17202b;
+  margin-bottom: 8%;
+}
+
+.center-info span {
+  display: block;
+  font-size: 1.2rem;
+  color: #17202b;
+  font-weight: 500;
+  width: 90%;
+}
+
+.listOpeningHours {
+  border-bottom: 2px solid rgba(42, 63, 82, 0.2);
+  padding-bottom: 2%;
+}
+
+.center-info p {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #17202b;
+  margin: 7% 0;
+}
+
+.center-info ul {
+  margin: 7% 0 3% 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-size: 1.4rem;
+  align-content: space-between;
+  height: 12vh;
+}
+
+.center-info ul li {
+  margin: 3% 0;
+  color: #17202b;
+  font-weight: 500;
+}
+
+.center-info a {
+  text-align: center;
+  display: block;
+  padding-bottom: 3%;
+  font-size: 2rem;
+  font-weight: 500;
+  width: 90%;
+  color: #d3a058;
+  text-decoration: none;
+  padding: 3% 2% 3% 2%;
+  background-color: #17202b;
+}
+
+
+
+/******************************************
+/* FAQs
+/*******************************************/
+
+.faq-section{
+    background: #d3a058;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+}
+
+.faq-section h2 {
+    font-size: 5rem;
+    font-weight: 600;
+    color: #17202b;
+    margin-bottom: 1%;
+    font-family: 'Playfair Display', serif;
+}
+
+.faq-section p {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #17202b;
+    margin: 1% 0 3% 0;
+    width: 60%;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.faq-section a {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #17202b;
+  text-decoration: underline;
+}
+
+
+.faq-section-container  {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+.faq-section-container ul  {
+    width: 100%;
+}
+
+.faq-section-container ul li {
+    margin-top: 2%;
+    border-bottom: 2px solid  #17202b;;
+    width: 100%;
+    padding-bottom: 1.2%;
+}
+
+
+
+.faq-section-container ul li i {
+  font-size: 2.3rem;
+  color: #17202b;
+  font-weight: 500;
+  margin-left: 99%;
+}
+
+
+
+.faq-section-container ul li h3 {
+    font-size: 2.3rem;
+    color: #17202b;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.faq-section-container ul li p {
+    font-size: 2.1rem;
+    color: #17202b;
+    font-weight: 400;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 2%;
+}
+
+/******************************************
+/* Final Section
+/*******************************************/
+footer {
+  height: 35vh;
+  padding: 12% 0 2% 0;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+.final-section {
+  display: flex;
+  justify-content: space-evenly;
+  height: 35vh;
+}
+
+.final-section .pages-container {
+  display: flex;
+  width: 55%;
+  justify-content: space-between;
+  height: 40vh;
+  margin-top: 0.9%;
+}
+
+.final-section .pages-container section h4 {
+  margin-bottom: 1%;
+  font-size: 1.3rem;
+  color: rgba(246, 196, 125, 0.7);
+  font-weight: 400;
+}
+
+.final-section .pages-container section h4.about-container {
+  margin-bottom: 10%;
+  font-size: 1.3rem;
+  color: rgba(246, 196, 125, 0.7);
+  font-weight: 400;
+}
+
+.final-section .pages-container .about-container-li {
+  margin-top: 11%;
+}
+
+.final-section .pages-container section ul {
+  width: 100%;
+}
+
+.final-section .pages-container section ul li {
+  width: 100%;
+  margin-top: 8%;
+}
+
+.final-section .pages-container section ul li a {
+  font-size: 1.3rem;
+  color: #d3a058;
+  font-weight: 500;
+  border-bottom: 2px solid transparent;
+  position: relative;
+  padding-bottom: 5%;
+}
+
+.final-section .pages-container section ul li a::after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #d3a058;
+  transition: width 0.3s ease-in-out;
+}
+
+.final-section .pages-container section ul li a:hover::after {
+  width: 100%;
+}
+
+.final-section section.email-container {
+  height: 28vh;
+  width: 32%;
+  display: flex;
+  flex-direction: column;
+}
+
+.final-section section.email-container h4 {
+  margin: 0% 0 4% 40%;
+  font-size: 1.8rem;
+  color: rgba(246, 196, 125, 0.7);
+  line-height: 1.5;
+
+}
+
+.final-section section.email-container h5 a{
+  margin: 0% 0 4% 40%;
+  font-size: 1.8rem;
+  color: rgba(246, 196, 125, 0.7);
+  line-height: 1.5;
+}
+
+.final-section section.email-container h5 a:hover {
+  color: aliceblue;
+}
+
+section.final-section section.email-container p {
+  margin: 0% 0 3% 40%;
+  font-size: 1.5rem;
+  color: rgba(246, 196, 125, 0.7);
+  line-height: 1.5;
+
+}
+
+.final-section section.email-container h4 a {
+  margin: 5% 0 4% 43%;
+  font-size: 1.8rem;
+  color: rgba(246, 196, 125, 0.7);
+
+}
+
+.final-section section.email-container form a i {
+  font-size: 1.5rem;
+  color: #17202b;
+  position: absolute;
+  left: 500px;
+  bottom: 16px;
+}
+
+.final-section section.email-container p {
+  margin: 0 0 0% 40%;
+  font-size: 1.2rem;
+  width: 60%;
+  color: #d3a058;
+}
+
+.final-section section.email-container div {
+  margin: 0 0 0% 40%;
+  font-size: 2rem;
+  display: flex;
+  width: 60%;
+  color: #d3a058;
+  margin-top: 3%;
+}
+
+.final-section section.email-container div a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5%;
+  padding: 4% 4%;
+  font-size: 2rem;
+  border-radius: 100px;
+  background: #17202b;
+  color: #d3a058;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.final-section section.email-container div a:hover {
+  background-color: #d3a058;
+  color: #17202b;
+}
+
+footer small {
+  margin-top: 2%;
+  padding: 0 0 2% 4%;
+  width: 100%;
+  font-size: 1.3rem;
+  color: #d3a058;
+}
+
+
+
+
+
+
+/******************************************
+/* /* Media Query */
+/*******************************************/
+
+@media all and (min-width: 350px) and (max-width: 699px) {
+  .header-nav-logo .span-logo {
+    font-size: 3rem;
+  }
+
+  .header-nav-logo {
+    width: 100%;
+    margin-left: 5%;
+    display: flex;
+  }
+
+  .header-nav-logo a {
+    display: block;
+    width: 100%;
+  }
+
+  #myHeader .header-nav-logo {
+    width: 60%;
+  }
+
+  #myHeader .header-nav-logo .logo {
+    width: 100%;
+  }
+
+  #home {
+    display: none;
+  }
+
+  #myHeader {
+    display: flex;
+    height: 10vh;
+    justify-content: space-around;
+    width: 100%;
+    background-color: #17202b;
+    position: static;
+  }
+  
+  #contact {
+    display: none;
+  }
+
+  .book-now-button {
+    display: none;
+  }
+
+  .services {
+    height: 85vh;
+  }
+
+  .header-nav-list {
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  .header-nav-list ul {
+    text-align: left;
+    justify-content: flex-end;
+    width: 15%;
+  }
+
+  .services section {
+    width: 28%;
+  }
+
+  .header-nav-list li:nth-of-type(2n+2) {
+    display: none;
+  }
+
+  #myHeader .imgOneContainer {
+    display: none;
+  }
+
+
+
+  /* Main */
+  .main-section {
+    width: 100%;
+    background-position: 70% 100%!important;
+    margin-top: 5%;
+  }
+
+  .main-section p {
+    width: 60%;
+    font-size: 1.5rem;
+    margin-bottom: 2%;
+  }
+
+  .main-section h1 {
+    width: 100%;
+    font-size: 3rem;
+  }
+
+  .main-section-container a {
+    padding: 2%;
+  }
+
+  /* Main Content Nav */
+  .main-content-nav {
+    display: none;
+  }
+
+  /* Main Content Info */
+  .main-content-info {
+    margin-bottom: 20%;
+    width: 100%;
+    padding: 5%;
+    min-height: 180vh;
+
+  }
+
+
+  .main-content-info-container {
+    width: 100%;
+    display: block;
+  }
+
+  .main-content-info h3 {
+    width: 50%;
+    margin: 5% auto;
+    text-align: center;
+    
+  }
+
+  .how-it-works-section {
+    display: block;
+    width: 100%;
+    padding: 5%;
+  }
+
+  .how-it-works-section p {
+    width: 100%;
+  }
+
+  .main-content-info-container .how-it-works-img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .main-content-info-container .how-it-works-img img {
+    /* width: 100%; */
+    height: 30vh;
+  }
+
+  .horizontal-space {
+    display: none;
+    width: 20%;
+    margin-top: 112%;
+  }
+
+  /* Preparation And Aftercare Section */
+
+  .preparation-and-aftercare-section  {
+    display: block;
+    width: 100%;
+    min-height: 290vh;
+    margin-top: 80%;
+  }
+
+  .preparation-list-info ul {
+    display: block;
+    margin-bottom: 5%;
+  }
+
+  .preparation-list-info ul li {
+    margin-top: 3%;
+  }
+
+  .preparation-info-prep  {
+    margin-top: 15%;
+    display: block;
+  }
+
+  .preparation-info-prep section {
+    display: block;
+    width: 100%;
+    min-height: 80vh;
+    border-bottom: 2px solid #d3a058;
+  }
+
+  .preparation-info-prep section p {
+    margin-bottom: 0;
+  }
+
+  /* Photo Gallery */
+
+  .photo-gallery {
+    min-height: 145vh;
+    display: flex;
+    flex-direction: column;
+    gap: 2%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .photo-gallery-img-container {
+    display: block;
+    padding: 5% 5%;
+  }
+
+  .photo-gallery-img-container img  {
+    width: 100%;
+    margin-top: 10%;
+
+  }
+
+  /* fourth section */
+  .fourth-section {
+    display: block;
+  }
+
+  .fourth-section > section  {
+    display: block;
+    width: 90%;
+    margin-top: 5%;
+  }
+
+
+  /* Customer Reviews Section */
+  .customer-review-section .reviews-container {
+    display: block;
+  }
+
+
+  .customer-review-section .reviews-container section {
+    display: block;
+    width: 100%;
+    margin-top: 3%;
+  }
+
+
+  /* Booking Section */
+  .booking-section  {
+    display: block;
+    width: 100%;
+    height: 100vh;
+    padding: 5%;
+  }
+
+  .booking-section-img {
+    margin-top: 5%;
+    background-position: center;
+    width: 95%;
+  }
+
+  .booking-section-info  {
+    width: 100%;
+  }
+
+  .booking-section-info h2 {
+    width: 100%;
+  }
+
+  .booking-section-info P {
+    width: 100%;
+  }
+
+
+  /* FAQs */
+
+  .faq-section {
+    display: block;
+    width: 100%;
+  }
+
+  .faq-section h2 {
+    width: 100%;
+  }
+
+  .faq-section p {
+    width: 100%;
+  }
+
+
+  /* Final Section */
+  footer {
+    display: block;
+    width: 100%;
+    
+  }
+
+  .final-section {
+    display: block;
+    width: 100%;
+  }
+
+  .final-section .pages-container {
+    display: block;
+    width: 100%;
+    /* margin: 0 auto; */
+  }
+
+  .final-section section.email-container {
+    display: none;
+  }
+
+  .final-section .pages-container section {
+    width: 50%;
+    margin: 5% auto;
+    text-align: center;
+  }
+
+
+  footer small {
+    display: none;
+  }
+}
+
+
+
+@media all and (min-width: 700px) and (max-width: 799px) {
+  /* Navigation */
+
+
+  .header-nav-logo .span-logo {
+    font-size: 2.9rem;
+  }
+
+
+  .services {
+    height: 65vh;
+  }
+
+  .services section {
+    width: 26%;
+  }
+
+  #myHeader .imgOneContainer {
+    display: none;
+  }
+
+
+  .header-nav-list ul li:nth-last-of-type(3n+2) {
+    display: none;
+  }
+
+  .header-nav-list ul li:first-child {
+    display: none;
+  }
+
+  .header-nav-list ul {
+    width: 100%;
+  }
+
+  .header-nav-list ul li {
+    font-size: 1.2rem;
+  }
+  
+  .services {
+    top: 75px;
+  }
+
+  .services section {
+    display: block;
+    width: 100%;
+  }
+
+  .services .imgOneContainer {
+    display: none;
+  }
+
+  .services li {
+    margin-top: 6%;
+  }
+
+  .services section h4 {
+    margin: 10% 0;
+  }
+
+  .booking {
+    width: 100%;
+    display: none;
+  }
+
+
+  /* Main */
+  .main-section {
+    width: 100%;
+    background-position: 70% 100%;
+    margin-top: 5%;
+  }
+
+  .main-section p {
+    width: 60%;
+    font-size: 1.6rem;
+    margin-bottom: 2%;
+  }
+
+  .main-section h1 {
+    width: 100%;
+  }
+
+  .main-section-container a {
+    padding: 2%;
+  }
+
+  /* Main Content Nav */
+  .main-content-nav {
+    display: none;
+  }
+
+  /* Main Content Info */
+  .main-content-info {
+    margin-bottom: 20%;
+    width: 100%;
+    padding: 5%;
+    min-height: 120vh;
+
+  }
+
+
+  .main-content-info-container {
+    width: 100%;
+    display: block;
+  }
+
+  .main-content-info h3 {
+    width: 50%;
+    margin: 5% auto;
+    text-align: center;
+    
+  }
+
+  .how-it-works-section {
+    display: block;
+    width: 100%;
+    padding: 5%;
+  }
+
+  .how-it-works-section p {
+    width: 100%;
+  }
+
+  .how-it-works-img {
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  .how-it-works-img img {
+    max-width: 100%;
+    height: 100%;
+  }
+
+  .horizontal-space {
+    display: none;
+    width: 20%;
+    margin-top: 112%;
+  }
+
+  /* Preparation And Aftercare Section */
+
+  .preparation-and-aftercare-section  {
+    display: block;
+    width: 100%;
+    min-height: 160vh;
+    margin-top: 35%;
+  }
+
+  .preparation-list-info ul {
+    display: block;
+    margin-bottom: 5%;
+  }
+
+  .preparation-list-info ul li {
+    margin-top: 3%;
+  }
+
+  .preparation-info-prep  {
+    margin-top: 15%;
+    display: block;
+  }
+
+  .preparation-info-prep section {
+    display: block;
+    width: 100%;
+    min-height: 50vh;
+    border-bottom: 2px solid #d3a058;
+  }
+
+  .preparation-info-prep section p {
+    margin-bottom: 0;
+  }
+
+  /* Photo Gallery */
+
+  .photo-gallery {
+    min-height: 185vh;
+  }
+
+  .photo-gallery-img-container {
+    display: block;
+    padding: 5%;
+  }
+
+  .photo-gallery-img-container img  {
+    width: 100%;
+  }
+
+  /* fourth section */
+  .fourth-section {
+    display: block;
+  }
+
+  .fourth-section > section  {
+    display: block;
+    width: 90%;
+    margin-top: 5%;
+  }
+
+
+  /* Customer Reviews Section */
+  .customer-review-section .reviews-container {
+    display: block;
+  }
+
+
+  .customer-review-section .reviews-container section {
+    display: block;
+    width: 100%;
+    margin-top: 3%;
+  }
+
+
+  /* Booking Section */
+  .booking-section  {
+    display: block;
+    width: 100%;
+    height: 100vh;
+    padding: 5%;
+  }
+
+  .booking-section-img {
+    margin-top: 5%;
+    background-position: center;
+    width: 95%;
+  }
+
+  .booking-section-info  {
+    width: 100%;
+  }
+
+  .booking-section-info h2 {
+    width: 100%;
+  }
+
+  .booking-section-info P {
+    width: 100%;
+  }
+
+
+  /* FAQs */
+
+  .faq-section {
+    display: block;
+    width: 100%;
+  }
+
+  .faq-section h2 {
+    width: 100%;
+  }
+
+  .faq-section p {
+    width: 100%;
+  }
+
+
+  /* Final Section */
+  footer {
+    display: block;
+    width: 100%;
+  }
+
+  .final-section {
+    display: block;
+    width: 100%;
+  }
+
+  .final-section .pages-container {
+    display: block;
+    width: 100%;
+    /* margin: 0 auto; */
+  }
+
+  .final-section section.email-container {
+    display: none;
+  }
+
+  .final-section .pages-container section {
+    width: 50%;
+    margin: 5% auto;
+    text-align: center;
+  }
+
+
+  footer small {
+    display: block;
+    margin: 80% auto;
+    width: 50%;
+    padding: 0;
+    text-align: center;
+  }
+}
+
+
+@media all and (min-width: 800px) and (max-width: 1000px) {
+  /* Navigation */
+
+  .services {
+    top: -20px;
+  }
+
+  .header-nav-list {
+    height: 1vh;
+  }
+
+  .header-nav div {
+    width: 31%;
+  }
+
+  .header-nav div span {
+    font-size: 2.8rem;
+  }
+
+
+  .header-nav-list ul {
+    width: 100%;
+  }
+
+  .header-nav-list ul li {
+    font-size: 1.2rem;
+  }
+  
+  .services {
+    margin-top: 10%;
+    /* display: block; */
+    width: 100%;
+    height: 80vh;
+  }
+
+  .services section {
+    display: block;
+    width: 100%;
+  }
+
+  .services .imgOneContainer {
+    display: none;
+  }
+
+  .services li {
+    margin-top: 6%;
+  }
+
+  .services section h4 {
+    margin: 10% 0;
+  }
+
+  .booking {
+    width: 100%;
+    display: none;
+  }
+
+
+  /* Main */
+  .main-section {
+    width: 100%;
+    background-position: 70% 100%;
+    margin-top: 5%;
+  }
+
+  .main-section p {
+    width: 60%;
+    font-size: 1.6rem;
+    margin-bottom: 2%;
+  }
+
+  .main-section h1 {
+    width: 100%;
+  }
+
+  .main-section-container a {
+    padding: 2%;
+  }
+
+  /* Main Content Nav */
+  .main-content-nav {
+    display: none;
+  }
+
+  /* Main Content Info */
+  .main-content-info {
+    margin-bottom: 20%;
+    width: 100%;
+    padding: 5%;
+    min-height: 120vh;
+
+  }
+
+
+  .main-content-info-container {
+    width: 100%;
+    display: block;
+  }
+
+  .main-content-info h3 {
+    width: 50%;
+    margin: 5% auto;
+    text-align: center;
+    
+  }
+
+  .how-it-works-section {
+    display: block;
+    width: 100%;
+    padding: 5%;
+  }
+
+  .how-it-works-section p {
+    width: 100%;
+  }
+
+  .how-it-works-img {
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  .how-it-works-img img {
+    max-width: 100%;
+    height: 100%;
+  }
+
+  .horizontal-space {
+    display: none;
+    width: 20%;
+    margin-top: 112%;
+  }
+
+  /* Preparation And Aftercare Section */
+
+  .preparation-and-aftercare-section  {
+    display: block;
+    width: 100%;
+    min-height: 160vh;
+    margin-top: 35%;
+  }
+
+  .preparation-list-info ul {
+    display: block;
+    margin-bottom: 5%;
+  }
+
+  .preparation-list-info ul li {
+    margin-top: 3%;
+  }
+
+  .preparation-info-prep  {
+    margin-top: 15%;
+    display: block;
+  }
+
+  .preparation-info-prep section {
+    display: block;
+    width: 100%;
+    min-height: 50vh;
+    border-bottom: 2px solid #d3a058;
+  }
+
+  .preparation-info-prep section p {
+    margin-bottom: 0;
+  }
+
+  /* Photo Gallery */
+
+  .photo-gallery {
+    min-height: 235vh;
+  }
+
+  .photo-gallery-img-container {
+    display: block;
+    padding: 5%;
+  }
+
+  .photo-gallery-img-container img  {
+    width: 100%;
+  }
+
+  /* fourth section */
+  .fourth-section {
+    display: block;
+  }
+
+  .fourth-section > section  {
+    display: block;
+    width: 90%;
+    margin-top: 5%;
+  }
+
+
+  /* Customer Reviews Section */
+  .customer-review-section .reviews-container {
+    display: block;
+  }
+
+
+  .customer-review-section .reviews-container section {
+    display: block;
+    width: 100%;
+    margin-top: 3%;
+  }
+
+
+  /* Booking Section */
+  .booking-section  {
+    display: block;
+    width: 100%;
+    height: 100vh;
+    padding: 5%;
+  }
+
+  .booking-section-img {
+    margin-top: 5%;
+    background-position: center;
+    width: 95%;
+  }
+
+  .booking-section-info  {
+    width: 100%;
+  }
+
+  .booking-section-info h2 {
+    width: 100%;
+  }
+
+  .booking-section-info P {
+    width: 100%;
+  }
+
+
+  /* FAQs */
+
+  .faq-section {
+    display: block;
+    width: 100%;
+  }
+
+  .faq-section h2 {
+    width: 100%;
+  }
+
+  .faq-section p {
+    width: 100%;
+  }
+
+
+  /* Final Section */
+  footer {
+    display: block;
+    width: 100%;
+  }
+
+  .final-section {
+    display: block;
+    width: 100%;
+  }
+
+  .final-section .pages-container {
+    display: block;
+    width: 100%;
+    /* margin: 0 auto; */
+  }
+
+  .final-section section.email-container {
+    display: none;
+  }
+
+  .final-section .pages-container section {
+    width: 50%;
+    margin: 5% auto;
+    text-align: center;
+  }
+
+
+  footer small {
+    display: block;
+    margin: 80% auto;
+    width: 50%;
+    padding: 0;
+    text-align: center;
+  }
+
+}
+
+@media all and (min-width: 1001px) and (max-width: 1199px) {
+  /* Navigation */
+
+  .services {
+    top: -30px;
+  }
+
+  .header-nav-list {
+    height: 1vh;
+  }
+
+  .header-nav div {
+    width: 31%;
+  }
+
+  .header-nav div span {
+    font-size: 2.8rem;
+  }
+
+
+  .header-nav-list ul {
+    width: 100%;
+  }
+
+  .header-nav-list ul li {
+    font-size: 1.2rem;
+  }
+  
+  .services {
+    margin-top: 10%;
+    /* display: block; */
+    width: 100%;
+    height: 90vh;
+  }
+
+  .services section {
+    display: block;
+    width: 100%;
+  }
+
+  .services .imgOneContainer {
+    display: none;
+  }
+
+  .services li {
+    margin-top: 6%;
+  }
+
+  .services section h4 {
+    margin: 10% 0;
+  }
+
+  .booking {
+    width: 100%;
+  }
+
+
+  /* Main */
+  .main-section {
+    width: 100%;
+    background-position: 70% 100%;
+    margin-top: 5%;
+  }
+
+  .main-section p {
+    width: 60%;
+    font-size: 1.6rem;
+    margin-bottom: 2%;
+  }
+
+  .main-section h1 {
+    width: 100%;
+  }
+
+  .main-section-container a {
+    padding: 2%;
+  }
+
+  /* Main Content Nav */
+  .main-content-nav {
+    display: none;
+  }
+
+  /* Main Content Info */
+  .main-content-info {
+    margin-bottom: 20%;
+    width: 100%;
+    padding: 5%;
+    min-height: 120vh;
+
+  }
+
+
+  .main-content-info-container {
+    width: 100%;
+    display: block;
+  }
+
+  .main-content-info h3 {
+    width: 50%;
+    margin: 5% auto;
+    text-align: center;
+    
+  }
+
+  .how-it-works-section {
+    display: block;
+    width: 100%;
+    padding: 5%;
+  }
+
+  .how-it-works-section p {
+    width: 100%;
+  }
+
+  .how-it-works-img {
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  .how-it-works-img img {
+    max-width: 100%;
+    height: 100%;
+  }
+
+  .horizontal-space {
+    display: none;
+    width: 20%;
+    margin-top: 112%;
+  }
+
+  /* Preparation And Aftercare Section */
+
+  .preparation-and-aftercare-section  {
+    display: block;
+    width: 100%;
+    min-height: 160vh;
+    margin-top: 35%;
+  }
+
+  .preparation-list-info ul {
+    display: block;
+    margin-bottom: 5%;
+  }
+
+  .preparation-list-info ul li {
+    margin-top: 3%;
+  }
+
+  .preparation-info-prep  {
+    margin-top: 15%;
+    display: block;
+  }
+
+  .preparation-info-prep section {
+    display: block;
+    width: 100%;
+    min-height: 50vh;
+    border-bottom: 2px solid #d3a058;
+  }
+
+  .preparation-info-prep section p {
+    margin-bottom: 0;
+  }
+
+  /* Photo Gallery */
+
+  .photo-gallery {
+    min-height: 235vh;
+  }
+
+  .photo-gallery-img-container {
+    display: block;
+    padding: 5%;
+  }
+
+  .photo-gallery-img-container img  {
+    width: 100%;
+  }
+
+  /* fourth section */
+  .fourth-section {
+    display: block;
+  }
+
+  .fourth-section > section  {
+    display: block;
+    width: 90%;
+    margin-top: 5%;
+  }
+
+
+  /* Customer Reviews Section */
+  .customer-review-section .reviews-container {
+    display: block;
+  }
+
+
+  .customer-review-section .reviews-container section {
+    display: block;
+    width: 100%;
+    margin-top: 3%;
+  }
+
+
+  /* Booking Section */
+  .booking-section  {
+    display: block;
+    width: 100%;
+    height: 100vh;
+    padding: 5%;
+  }
+
+  .booking-section-img {
+    margin-top: 5%;
+    background-position: center;
+    width: 95%;
+  }
+
+  .booking-section-info  {
+    width: 100%;
+  }
+
+  .booking-section-info h2 {
+    width: 100%;
+  }
+
+  .booking-section-info P {
+    width: 100%;
+  }
+
+
+  /* FAQs */
+
+  .faq-section {
+    display: block;
+    width: 100%;
+  }
+
+  .faq-section h2 {
+    width: 100%;
+  }
+
+  .faq-section p {
+    width: 100%;
+  }
+
+
+  /* Final Section */
+  footer {
+    display: block;
+    width: 100%;
+  }
+
+  .final-section {
+    display: block;
+    width: 100%;
+  }
+
+  .final-section .pages-container {
+    display: block;
+    width: 100%;
+    /* margin: 0 auto; */
+  }
+
+  .final-section section.email-container {
+    display: none;
+  }
+
+  .final-section .pages-container section {
+    width: 50%;
+    margin: 5% auto;
+    text-align: center;
+  }
+
+
+  footer small {
+    display: block;
+    margin: 80% auto;
+    width: 50%;
+    padding: 0;
+    text-align: center;
+  }
+}
+
+
+
+
+@media all and (min-width: 1200px) and (max-width: 1600px){
+  /* Navigation */
+ 
+  .header-nav {
+    width: 100%;
+  }
+
+  .services .imgOneContainer {
+    display: none;
+  }
+
+  .header-nav-logo span {
+    font-size: 0rem;
+  }
+
+
+  .services{
+    height: 85vh;
+  }
+
+  .services section {
+    width: 100%;
+  }
+
+  /* Preparation And Aftercare Section */
+
+  .preparation-and-aftercare-section  {
+      min-height: 80vh;
+    }
+
+
+
+  .main-content-info {
+    margin-bottom: 20%;
+    width: 100%;
+    padding: 5%;
+    min-height: 90vh;
+
+  }
+
+  .horizontal-space {
+    display: none;
+  }
+
+
+  /* Booking Section */
+   .booking-section  {
+    padding: 5%;
+  }
+
+  footer small {
+    text-align: center;
+  }
+
+}
+
+
+
+
+

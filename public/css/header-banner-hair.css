@@ -1,0 +1,8 @@
+.main-section {
+    margin-top: 5%;
+    height: 60vh;
+    background: url('../assets/banner-2.png') center no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
