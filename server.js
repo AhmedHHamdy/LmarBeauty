@@ -9,6 +9,8 @@ const hairRoutes = require("./routes/hair")
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
 
+const port = process.env.PORT || 10000;
+
 // Static Folder
 app.use(express.static("public"))
 
@@ -26,6 +28,6 @@ app.use("/facials", faceRoutes)
 app.use("/hair", hairRoutes)
 
 //Server Running
-app.listen(process.env.PORT, () => {
+app.listen(port, () => {
   console.log("Server is running, you better catch it!");
 });
